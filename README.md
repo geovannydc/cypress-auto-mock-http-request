@@ -3,7 +3,53 @@
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
+## Copy Notes
+
 This repository is a copy of <https://github.com/scottschafer/cypressautomocker>. We have made this copy for an immediate need to use the library and the correction of specific issues found. We suggest using the original library because these same changes will be suggested to the original library
+
+## How to use
+
+Integrating this tool into your web application involves a few steps:
+
+1. Add the cypress-http-auto-mock to your project:
+
+    ```sh
+    npm install --save cypress-http-auto-mock
+    ```
+
+1. Add the cypress web hooks to your application.
+
+    ```js
+    import installCypressHooks from 'cypress-http-auto-mock/include-in-webapp';
+    installCypressHooks();
+    ```
+
+    Another option to do the same thing would be to include the following code in your HTML instead:
+
+    ``` html
+    <script src="node_modules/cypress-http-auto-mock/include-in-webapp/installCypressHooks-norequire.js">
+    ```
+
+1. Add the following to cypress/support/commands.js
+
+    ``` js
+    import registerAutoMockCommands from 'cypress-http-auto-mock/include-in-tests';
+    registerAutoMockCommands();
+    ```
+
+1. In each of your tests, add the following:
+
+    ``` js
+      const MOCK_FILENAME = 'testCounter';
+
+      before(() => {
+        cy.automock(MOCK_FILENAME);
+      });
+
+      after(() => {
+        cy.automockEnd();
+      });
+    ```
 
 This tool is built on top of the open-source testing platform [Cypress.io](https://www.cypress.io/) to allow recording API results and replaying the APIs as a mock server.
 
@@ -38,43 +84,3 @@ You can control the recording and playback behavior using the (optional) automoc
 ```
 
 The default (that is, if "automocker" doesn't exist) is to treat both record and playback as true, which means that it will automatically record API calls (if the proper commands are called in the tests) if the mock file does not exits, and will play them back as mocks if they do exist.
-
-##### Integrating Into Your Own Web Application and tests
-
-Integrating this tool into your web application involves a few steps:
-
-1. Add the cypressautomocker to your project:
-```
-npm install --save cypressautomocker
-```
-
-2. Add the cypress web hooks to your application.
-```
-import installCypressHooks from 'cypressautomocker/include-in-webapp';
-installCypressHooks();
-```
-Another option to do the same thing would be to include the following code in your HTML instead:
-```
-<script src="node_modules/cypressautomocker/include-in-webapp/installCypressHooks-norequire.js">
-```
-
-3. Add the following to cypress/support/commands.js
-```
-import registerAutoMockCommands from 'cypressautomocker/include-in-tests';
-registerAutoMockCommands();
-```
-
-4. In each of your tests, add the following:
-
-```
-  const MOCK_FILENAME = 'testCounter';
-
-  before(() => {
-    cy.automock(MOCK_FILENAME);
-  });
-
-  after(() => {
-    cy.automockEnd();
-  });
-```
-# cypress-http-auto-mock
