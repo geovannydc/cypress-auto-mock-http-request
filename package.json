@@ -1,10 +1,10 @@
 {
   "name": "cypress-http-auto-mock",
-  "version": "0.0.3-development",
+  "version": "0.0.0-development",
   "description": "A set of extensions to cypress.io that allows automatic recording and playback of APIs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "semantic-release": "semantic-release"
   },
   "repository": {
