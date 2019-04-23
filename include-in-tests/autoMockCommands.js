@@ -171,7 +171,7 @@ function registerAutoMockCommands() {
 
               function recordTransformedObject(xhr, requestObject, responseObject) {
                 let contentType = xhr.getResponseHeader('content-type');
-                if (contentType !== null && contentType.toLowerCase().indexOf('application/json') !== -1) {
+                if (contentType !== null && (contentType.toLowerCase().indexOf('application/json') !== -1 || contentType.toLowerCase().indexOf('hal+json;charset') !== -1)) {
                   try {
                     responseObject = JSON.parse(responseObject);
                   } catch (e) {}
@@ -186,7 +186,9 @@ function registerAutoMockCommands() {
                   'statusText': xhr.statusText,
                   'contentType': contentType
                 };
-                recordedApis.push(transformedObject);
+                if (contentType !== "text/html; charset=utf-8") {
+                  recordedApis.push(transformedObject);
+                }
               }
 
               if (old_onload) {
