@@ -1,4 +1,9 @@
-## cypressautomocker
+# cypress-http-auto-mock
+
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
+This repository is a copy of <https://github.com/scottschafer/cypressautomocker>. We have made this copy for an immediate need to use the library and the correction of specific issues found. We suggest using the original library because these same changes will be suggested to the original library
 
 This tool is built on top of the open-source testing platform [Cypress.io](https://www.cypress.io/) to allow recording API results and replaying the APIs as a mock server.
 
