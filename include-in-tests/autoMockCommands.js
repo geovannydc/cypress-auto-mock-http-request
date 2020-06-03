@@ -186,8 +186,11 @@ function registerAutoMockCommands() {
                   'statusText': xhr.statusText,
                   'contentType': contentType
                 };
-                if (contentType !== "text/html; charset=utf-8") {
-                  recordedApis.push(transformedObject);
+                if (contentType !== null && contentType.indexOf('text/html') == -1) {
+                  const existRecordedApi = recordedApis.some((recordedApi) => recordedApi.path.indexOf(transformedObject.path) > -1);
+                  if (!existRecordedApi){
+                    recordedApis.push(transformedObject);
+                  }
                 }
               }
 
