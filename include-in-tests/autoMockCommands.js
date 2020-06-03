@@ -188,6 +188,7 @@ function registerAutoMockCommands() {
                 };
                 if (contentType !== null && contentType.indexOf('text/html') == -1) {
                   const existRecordedApi = recordedApis.some((recordedApi) => recordedApi.path.indexOf(transformedObject.path) > -1);
+                  
                   if(!existRecordedApi){
                     recordedApis.push(transformedObject);
                   }
