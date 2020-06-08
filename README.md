@@ -1,4 +1,4 @@
-# cypress-http-auto-mock
+# cypress-auto-mock-http-request
 
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
@@ -11,29 +11,29 @@ This repository is a copy of <https://github.com/scottschafer/cypressautomocker>
 
 Integrating this tool into your web application involves a few steps:
 
-1. Add the cypress-http-auto-mock to your project:
+1. Add the cypress-auto-mock-http-request to your project:
 
     ```sh
-    npm install --save cypress-http-auto-mock
+    npm install --save cypress-auto-mock-http-request
     ```
 
 1. Add the cypress web hooks to your application.
 
     ```js
-    import installCypressHooks from 'cypress-http-auto-mock/include-in-webapp';
+    import installCypressHooks from 'cypress-auto-mock-http-request/include-in-webapp';
     installCypressHooks();
     ```
 
     Another option to do the same thing would be to include the following code in your HTML instead:
 
     ``` html
-    <script src="node_modules/cypress-http-auto-mock/include-in-webapp/installCypressHooks-norequire.js">
+    <script src="node_modules/cypress-auto-mock-http-request/include-in-webapp/installCypressHooks-norequire.js">
     ```
 
 1. Add the following to cypress/support/commands.js
 
     ``` js
-    import registerAutoMockCommands from 'cypress-http-auto-mock/include-in-tests';
+    import registerAutoMockCommands from 'cypress-auto-mock-http-request/include-in-tests';
     registerAutoMockCommands();
     ```
 
