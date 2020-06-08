@@ -139,7 +139,7 @@ function registerAutoMockCommands() {
       if (automocker.isMocking) {
         const key = getApiKey(request);
         if (apiKeyToMocks.hasOwnProperty(key)) {
-          const apiCount = apiKeyToCallCounts[key]++;
+          const apiCount = apiKeyToCallCounts[key];
           if (apiCount < apiKeyToMocks[key].length) {
             const mock = apiKeyToMocks[key][apiCount];
             let response = mock.response;
