@@ -1,5 +1,5 @@
 {
-  "name": "cypress-http-auto-mock",
+  "name": "cypress-auto-mock-http-request",
   "version": "0.0.0-development",
   "description": "A set of extensions to cypress.io that allows automatic recording and playback of APIs",
   "main": "index.js",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/aperdomob/cypress-http-auto-mock.git"
+    "url": "https://github.com/geovannydc/cypress-http-auto-mock.git"
   },
   "keywords": [
     "cypress.io",
@@ -23,13 +23,13 @@
   ],
   "author": "Scott Schafer and Alexander Polatnick",
   "contributors": [
-    "Alejandro Perdomo <aperdomobo@gmail.com>"
+    "Geovanny Descanse <geovanny.dc@gmail.com>"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/aperdomob/cypress-http-auto-mock/issues"
+    "url": "https://github.com/geovannydc/cypress-http-auto-mock/issues"
   },
-  "homepage": "https://github.com/aperdomob/cypress-http-auto-mock#readme",
+  "homepage": "https://github.com/geovannydc/cypress-http-auto-mock#readme",
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^7.5.0",
