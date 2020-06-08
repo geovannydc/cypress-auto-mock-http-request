@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/geovannydc/cypress-http-auto-mock.git"
+    "url": "https://github.com/geovannydc/cypress-auto-mock-http-request.git"
   },
   "keywords": [
     "cypress.io",
@@ -27,9 +27,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/geovannydc/cypress-http-auto-mock/issues"
+    "url": "https://github.com/geovannydc/cypress-auto-mock-http-request/issues"
   },
-  "homepage": "https://github.com/geovannydc/cypress-http-auto-mock#readme",
+  "homepage": "https://github.com/geovannydc/cypress-auto-mock-http-request#readme",
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^7.5.0",
