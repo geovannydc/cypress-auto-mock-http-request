@@ -1,6 +1,6 @@
 {
   "name": "cypress-auto-mock-http-request",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A set of extensions to cypress.io that allows automatic recording and playback of APIs",
   "main": "index.js",
   "scripts": {
