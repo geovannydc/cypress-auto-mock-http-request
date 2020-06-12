@@ -139,8 +139,14 @@ function registerAutoMockCommands() {
       if (automocker.isMocking) {
         const key = getApiKey(request);
         if (apiKeyToMocks.hasOwnProperty(key)) {
-          const apiCount = apiKeyToCallCounts[key];
-          if (apiCount < apiKeyToMocks[key].length) {
+          let apiCount = apiKeyToCallCounts[key]++;
+          const mockAcount = apiKeyToMocks[key].length
+
+          if (apiCount == mockAcount || apiCount > mockAcount) {
+            apiCount = mockAcount - 1;
+          }
+
+          if (apiCount < mockAcount) {
             const mock = apiKeyToMocks[key][apiCount];
             let response = mock.response;
 
@@ -187,11 +193,15 @@ function registerAutoMockCommands() {
                   'contentType': contentType
                 };
                 if (contentType !== null && contentType.indexOf('text/html') == -1) {
-                  const existRecordedApi = recordedApis.some((recordedApi) => recordedApi.path.indexOf(transformedObject.path) > -1);
-                  const apiPathExlude = "/api/descriptor/guardarSoporte";
 
-                  if (transformedObject.path.includes(apiPathExlude)) {
-                      recordedApis.push(transformedObject);
+                  const existRecordedApi = recordedApis.some((recordedApi) =>
+                    recordedApi.path.indexOf(transformedObject.path) > -1 &&
+                    recordedApi.query.indexOf(transformedObject.query) > -1)
+
+                  const apiPathExlude =["/api/descriptor/guardarSoporte", "/api/afiliados/"]
+                  
+                  if (apiPathExlude.indexOf(transformedObject.path) > -1) {
+                    recordedApis.push(transformedObject);
                   } else {
                     if (!existRecordedApi) {
                       recordedApis.push(transformedObject);
@@ -261,7 +271,6 @@ function registerAutoMockCommands() {
     automocker.isMocking = true;
     apiKeyToMocks = {};
     apiKeyToCallCounts = {};
-
     mocks.forEach(function (mock) {
       const key = getApiKey(mock);
       if (!apiKeyToMocks.hasOwnProperty(key)) {
